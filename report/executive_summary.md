@@ -1,45 +1,51 @@
-# Executive Summary
+# Executive Summary — UAC Care Transition Efficiency & Placement Outcome Analytics
+**Prepared for:** U.S. Department of Health and Human Services
+**Date:** May 25, 2026
+**Data Source:** HHS Unaccompanied Alien Children Program Dataset
 
-The analysis covers daily UAC pipeline activity from 2023-01-12 to 2025-12-21, highlighting system flow and discharge performance across 720 reporting days. Average transfer efficiency was 1.48 and discharge effectiveness averaged 0.024, with pipeline throughput averaging 0.041. Backlog changes averaged -79.9 per day, while positive backlog occurred on 17.8% of days, indicating intermittent congestion. The strongest discharge month was 2023-03 (mean index 0.036), while the highest average backlog month was 2025-05 (mean 0.7).
+---
 
-## Key Findings
+## 1. Executive Summary
+This report analyzes the efficiency and outcomes of the Unaccompanied Alien Children (UAC) care pipeline, tracking the flow of children from CBP custody into HHS care and their subsequent placement with sponsors. By modeling this multi-stage transition, we aim to uncover hidden bottlenecks, evaluate placement effectiveness, and measure overall system throughput. These insights support proactive operational adjustments to ensure child welfare and operational stability.
 
-- Coverage period: 2023-01-12 to 2025-12-21 (720 days).
-- Average ratios: transfer efficiency 1.48, discharge effectiveness 0.024, pipeline throughput 0.041.
-- Backlog change averaged -79.9 per day; 17.8% of days showed net backlog growth.
-- Best discharge month was 2023-03 (mean 0.036); worst backlog month was 2025-05 (mean 0.7).
-- Total anomaly days flagged: 8.
+## 2. Key Findings
+- Average Transfer Efficiency Ratio: 94.3%
+- Average Discharge Effectiveness Index: 2.4%
+- Total anomaly days detected: 57
+- Worst bottleneck period: None detected
+- Best performing month for discharge: March 2023
 
-## KPI Performance Table
+## 3. KPI Performance Summary Table
+| KPI | Average Value | Status |
+|-----|--------------|--------|
+| Transfer Efficiency Ratio | 94.3% | 🟢 Good |
+| Discharge Effectiveness Index | 2.4% | 🔴 Critical |
+| Pipeline Throughput Rate | 4.1% | 🔴 Critical |
+| Backlog Accumulation Rate | -79.9 avg | N/A |
+| Outcome Stability Score | 0.0056 std | N/A |
 
-| KPI | Average | Status |
-| --- | ---: | :--- |
-| Transfer Efficiency Ratio | 1.484 | Warning |
-| Discharge Effectiveness Index | 0.024 | Warning |
-| Pipeline Throughput Rate | 0.041 | Good |
-| Backlog Accumulation Rate | -79.883 | Good |
-| Outcome Stability Score | 0.006 | Good |
+Status thresholds:
+- Good: ratio > 0.6
+- Warning: ratio 0.3–0.6
+- Critical: ratio < 0.3
 
-## Bottleneck Analysis
+## 4. Bottleneck Analysis
+The following are the most critical periods where the pipeline experienced sustained backlog accumulation (more incoming than discharged for 7+ consecutive days):
+No major bottlenecks detected of 7+ consecutive days.
 
-No sustained backlog periods (7+ consecutive days) were detected in this timeframe.
+## 5. Anomaly Events
+In total, 57 days were flagged as statistically significant anomalies (falling more than 2 standard deviations below the 30-day rolling mean for either transfer or discharge metrics).
+The most severe recent anomalies include:
+- **2025-11-30:** TE=1.00, DE=0.0000
+- **2025-11-23:** TE=1.00, DE=0.0004
+- **2025-11-09:** TE=0.45, DE=0.0017
 
-## Anomaly Events
+## 6. Policy Recommendations
+1. **Transfer Efficiency Optimization:** CBP to HHS transfers should be prioritized based on facility capacity and proximity to reduce initial delays in custody transitions.
+2. **Discharge Outcome Improvements:** Streamline sponsor vetting processes without compromising safety, specifically addressing the low average discharge effectiveness identified.
+3. **Backlog Mitigation:** Implement temporary capacity surges when backlog accumulation exceeds historical thresholds for more than 3 consecutive days.
+4. **Weekend Staffing Models:** Re-evaluate weekend case-management staffing, as the weekday-vs-weekend analysis frequently indicates disparities in placement progression.
+5. **Continuous Anomaly Monitoring:** Integrate the dashboard's anomaly alerts into daily stand-up briefings to catch localized drops in throughput early.
 
-Total anomaly days flagged: 8.
-Worst anomaly instances (lowest z-scores):
-- 2025-02-17: Discharge Effectiveness Index = 0.006 (z=-2.43).
-- 2024-07-30: Discharge Effectiveness Index = 0.016 (z=-2.35).
-- 2025-02-18: Discharge Effectiveness Index = 0.004 (z=-2.31).
-
-## Recommendations
-
-- Expand CBP-to-HHS transfer capacity on high-volume days to raise transfer efficiency above 1.5 on average.
-- Accelerate discharge planning for cases exceeding median HHS care levels to push the discharge index consistently above 0.03.
-- Prioritize operational surge staffing during months with elevated backlog means (e.g., 2025-05) to prevent sustained congestion.
-- Implement early-warning triggers tied to the 30-day rolling anomaly detection to address sudden performance drops within 48 hours.
-- Strengthen weekend discharge staffing and logistics to reduce weekday-weekend disparities and stabilize outcome variability.
-
-## Methodology Note
-
-Data were sourced from the cleaned UAC program dataset (daily records). KPI metrics were calculated as ratios of transfers, discharges, and care volumes; backlog accumulation reflects daily apprehensions minus discharges. Sustained bottlenecks were defined as >0 backlog for at least 7 consecutive days. Anomalies were flagged when transfer efficiency or discharge effectiveness fell more than 2 standard deviations below a 30-day rolling mean. KPI status thresholds were set as: transfer efficiency >=1.5 (Good), 1.0-1.49 (Warning), <1.0 (Critical); discharge effectiveness >=0.03 (Good), 0.02-0.029 (Warning), <0.02 (Critical); pipeline throughput >=0.035 (Good), 0.025-0.034 (Warning), <0.025 (Critical); backlog accumulation <=0 (Good), 0-50 (Warning), >50 (Critical); outcome stability score <=0.006 (Good), 0.006-0.01 (Warning), >0.01 (Critical).
+## 7. Methodology Note
+The pipeline model leverages daily snapshots of custody and care volumes. Key Performance Indicators (KPIs) were derived using ratio and flow analysis, normalizing variables by intake to track proportional efficiency. Anomalies were identified statistically utilizing 30-day rolling distributions, avoiding hardcoded thresholds that fail to adapt to seasonal volume changes.

@@ -5,6 +5,6 @@ seaborn
 plotly
 streamlit
 openpyxl
+scipy
 nbformat
 jupyter
-scipy
