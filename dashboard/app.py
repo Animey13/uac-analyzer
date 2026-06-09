@@ -45,10 +45,13 @@ else:
     filtered_df = df.copy()
 
 # Mock Multi-selects for columns that don't exist
-country = st.sidebar.multiselect("Country of Origin", options=[], default=[])
-state = st.sidebar.multiselect("US State", options=[], default=[])
+mock_countries = ["Honduras", "Guatemala", "El Salvador", "Mexico", "Other"]
+mock_states = ["Texas", "California", "Florida", "New York", "Arizona"]
 
-st.sidebar.info("Country and State filters are disabled as the dataset does not contain demographic columns.")
+country = st.sidebar.multiselect("Country of Origin", options=mock_countries, default=[])
+state = st.sidebar.multiselect("US State", options=mock_states, default=[])
+
+st.sidebar.info("Country and State filters are present but not applied to the data, as the dataset does not contain these demographic columns.")
 
 # KPIs
 st.subheader("Key Performance Indicators")
